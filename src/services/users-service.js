@@ -1,7 +1,7 @@
 import axios from "axios";
 //const BASE_URL = "http://my-node-express-project-env.eba-hxq4pgvm.us-east-1.elasticbeanstalk.com";
-//const BASE_URL = "https://fse-node-project22.herokuapp.com";
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = "https://fse-node-project22.herokuapp.com";
+//const BASE_URL = "http://localhost:4000";
 
 const LOGIN_API = `${BASE_URL}/api/login`;
 const USERS_API = `${BASE_URL}/api/users`;
@@ -18,13 +18,24 @@ export const findUserById = (uid) =>
   axios.get(`${USERS_API}/${uid}`)
     .then(response => response.data);
 
-export const deleteUser = (uid) =>
+export const deleteUser = (uid) => {
   axios.delete(`${USERS_API}/${uid}`)
-    .then(response => response.data);
+      .then(response => {
+        console.log("response");
+        console.log(response.data);
+        response.data});
+}
+
+// export const deleteUsersByUsername = (username) =>
+//   axios.delete(`${USERS_API}/username/${username}`)
+//       .then(response => {
+//         console.log("response");
+//         console.log(response.data);
+//         response.data});
 
 export const deleteUsersByUsername = (username) =>
-  axios.get(`${USERS_API}/${username}`)
-    .then(response => response.data);
+    axios.delete(`${USERS_API}/username/${username}/delete`)
+        .then(response => response.data);
 
 export const findUserByCredentials = (credentials) =>
   axios.post(`${LOGIN_API}`, credentials)

@@ -48,21 +48,23 @@ describe('deleteUsersByUsername', () => {
   };
 
   //setup the tests before verification
-  beforeAll(() => {
+  beforeAll(async () => {
     // insert the sample user we then try to remove
-     return createUser(sowell);
-  });
 
-  //clean up after test runs
-  afterAll(() => {
-    // remove any data we created
-    return deleteUsersByUsername(sowell.username);
-  })
+      await createUser(sowell);
+  });
+  //
+  // //clean up after test runs
+  // afterAll(async () => {
+  //   // remove any data we created
+  //   await deleteUsersByUsername(sowell.username);
+  // })
 
   test('can delete users from REST API by username', async () => {
     // delete a user by their username. Assumes user already exists
-    const status = await deleteUsersByUsername(sowell.username);
-
+    const status =  deleteUsersByUsername(sowell.username);
+    console.log("status");
+    console.log(status);
     // verify we deleted at least one user by their username
     expect(status.deletedCount).toBeGreaterThanOrEqual(1);
   });
