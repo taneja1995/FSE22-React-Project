@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 import {
   createUser,
   deleteUsersByUsername, findAllUsers,
@@ -7,15 +10,15 @@ import {
 describe('createUser', () => {
   // sample user to insert
   const ripley = {
-    username: 'ellenripley',
-    password: 'lv426',
-    email: 'ellenripley@aliens.com'
-  };
+    username: "ishita",
+    password: "1234",
+    email: "ishi@abc.com"}
 
-  // setup test before running test
+
+  //setup test before running test
   beforeAll(() => {
     // remove any/all users to make sure we create it in the test
-    return deleteUsersByUsername(ripley.username);
+    createUser(ripley);
   })
 
   // clean up after test runs
@@ -39,18 +42,18 @@ describe('deleteUsersByUsername', () => {
 
   // sample user to delete
   const sowell = {
-    username: 'thommas_sowell',
-    password: 'compromise',
-    email: 'compromise@solutions.com'
+    username: "thommas_sowell",
+    password: "compromise",
+    email: "compromise@solutions.com"
   };
 
-  // setup the tests before verification
+  //setup the tests before verification
   beforeAll(() => {
     // insert the sample user we then try to remove
-    return createUser(sowell);
+     return createUser(sowell);
   });
 
-  // clean up after test runs
+  //clean up after test runs
   afterAll(() => {
     // remove any data we created
     return deleteUsersByUsername(sowell.username);
@@ -68,15 +71,15 @@ describe('deleteUsersByUsername', () => {
 describe('findUserById',  () => {
   // sample user we want to retrieve
   const adam = {
-    username: 'adam_smith',
-    password: 'not0sum',
-    email: 'wealth@nations.com'
+    username: "adam_smith",
+    password: "not0sum",
+    email: "wealth@nations.com",
   };
 
   // setup before running test
   beforeAll(() => {
     // clean up before the test making sure the user doesn't already exist
-    return deleteUsersByUsername(adam.username)
+    createUser(adam);
   });
 
   // clean up after ourselves

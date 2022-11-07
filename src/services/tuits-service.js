@@ -1,6 +1,7 @@
 import axios from "axios";
 //const BASE_URL = "http://my-node-express-project-env.eba-hxq4pgvm.us-east-1.elasticbeanstalk.com"
-const BASE_URL = "https://software-engineering-node-fa22.herokuapp.com/api";
+//const BASE_URL = "https://fse-node-project22.herokuapp.com/";
+const BASE_URL="http://localhost:4000";
 const TUITS_API = `${BASE_URL}/api/tuits`;
 const USERS_API = `${BASE_URL}/api/users`;
 
@@ -17,7 +18,7 @@ export const findTuitByUser = (uid) =>
     .then(response => response.data);
 
 export const createTuit = (uid, tuit) =>
-  axios.post(`${USERS_API}/${uid}/tuits`, tuit)
+  axios.post(`${BASE_URL}/api/tuits`, tuit)
     .then(response => response.data);
 
 export const updateTuit = (tid, tuit) =>
