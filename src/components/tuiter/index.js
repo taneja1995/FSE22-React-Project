@@ -15,6 +15,7 @@ import More from "../more";
 import {Login} from "../profile/login";
 import Movies from "../movies";
 import MovieDetails from "../movies/details";
+import Signup from "../profile/signup";
 
 function Tuiter () {
   return(
@@ -27,6 +28,7 @@ function Tuiter () {
           <div className="ttr-center-column">
             <Routes>
               <Route path="/" element={<Home/>}/>
+              <Route path="/signup" element={<Signup/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/tuiter" element={<Home/>}/>
               <Route path="/tuiter/:uid" element={<Home/>}/>

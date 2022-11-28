@@ -1,7 +1,7 @@
 import axios from "axios";
 //const BASE_URL = "http://my-node-express-project-env.eba-hxq4pgvm.us-east-1.elasticbeanstalk.com";
-const BASE_URL = "https://fse-node-project22.herokuapp.com";
-//const BASE_URL = "http://localhost:4000";
+//const BASE_URL = "https://fse-node-project22.herokuapp.com";
+const BASE_URL = "http://localhost:4000";
 
 const LOGIN_API = `${BASE_URL}/api/login`;
 const USERS_API = `${BASE_URL}/api/users`;
@@ -20,10 +20,7 @@ export const findUserById = (uid) =>
 
 export const deleteUser = (uid) => {
   axios.delete(`${USERS_API}/${uid}`)
-      .then(response => {
-        console.log("response");
-        console.log(response.data);
-        response.data});
+      .then(response => response.data);
 }
 
 // export const deleteUsersByUsername = (username) =>
