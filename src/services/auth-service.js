@@ -14,8 +14,12 @@ export const signup = (user) =>
             response.data);
 
 export const profile = () =>
+    console.log("inside profile method")
     api.post(`${AUTH_API}/profile`)
-        .then(response => response.data);
+        .then(
+            response =>
+                response.data
+            );
 
 export const logout = (user) =>
     api.post(`${AUTH_API}/logout`, user)
