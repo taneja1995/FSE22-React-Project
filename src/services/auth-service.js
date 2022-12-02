@@ -1,8 +1,6 @@
 import axios from "axios";
-const BASE_URL = process.env.REACT_APP_BASE_URL
-//const BASE_URL="https://fse-node-project22.herokuapp.com"
-
-const AUTH_API = `${BASE_URL}/api/auth`
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+const AUTH_API = `${BASE_URL}/api/auth`;
 
 const api = axios.create({
     withCredentials: true
@@ -10,16 +8,11 @@ const api = axios.create({
 
 export const signup = (user) =>
     api.post(`${AUTH_API}/signup`, user)
-        .then(response =>
-            response.data);
+        .then(response => response.data);
 
 export const profile = () =>
-    console.log("inside profile method")
     api.post(`${AUTH_API}/profile`)
-        .then(
-            response =>
-                response.data
-            );
+        .then(response => response.data);
 
 export const logout = (user) =>
     api.post(`${AUTH_API}/logout`, user)
