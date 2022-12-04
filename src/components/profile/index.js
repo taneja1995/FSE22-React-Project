@@ -3,6 +3,7 @@ import {Link, Routes, Route, useNavigate, useLocation} from "react-router-dom";
 import {useEffect, useState} from "react";
 import MyTuits from "./my-tuits";
 import MyLikes from "./my-likes";
+import MyDislikes from "./my-dislikes";
 
 const Profile = () => {
   const location = useLocation();
@@ -90,6 +91,11 @@ const Profile = () => {
                       className="nav-link">
                   Likes</Link>
               </li>
+              <li className="nav-item">
+                <Link to="/profile/mydislikes"
+                      className="nav-link">
+                  Dislikes</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -102,6 +108,8 @@ const Profile = () => {
           {/*       element={<Media/>}/>*/}
           <Route path="/mylikes"
                  element={<MyLikes/>}/>
+          <Route path="/mydislikes"
+                 element={<MyDislikes/>}/>
 
         </Routes>
       </div>
