@@ -4,6 +4,7 @@ import * as dislikeService from "../../services/dislike-service"
 
 const Tuits = ({tuits = [], deleteTuit,
                    refreshTuits}) => {
+
     const likeTuit = (tuit) =>
         likesService
             .userTogglesTuitLikes("me", tuit._id)

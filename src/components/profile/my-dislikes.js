@@ -8,7 +8,7 @@ const MyDislikes = () => {
     const findTuitsIDislike = () =>
         service.findAllTuitsDislikedByUser("me")
             .then((tuits) => setDislikedTuits(tuits));
-    useEffect(findTuitsIDislike, []);
+    useEffect(findTuitsIDislike, [setDislikedTuits]);
 
     return(
         <div>

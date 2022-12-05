@@ -7,7 +7,7 @@ const MyLikes = () => {
     const findTuitsILike = () =>
         service.findAllTuitsLikedByUser("me")
             .then((tuits) => setLikedTuits(tuits));
-    useEffect(findTuitsILike, []);
+    useEffect(findTuitsILike, [setLikedTuits]);
     return(
         <div>
             <Tuits tuits={likedTuits}

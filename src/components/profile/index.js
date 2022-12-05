@@ -19,7 +19,7 @@ const Profile = () => {
       }
     }
     fetchProfile();
-  }, [navigate]);
+  }, []);
   const logout = () => {
     service.logout()
         .then(() => navigate('/login'));
@@ -73,7 +73,7 @@ const Profile = () => {
             <ul className="mt-4 nav nav-pills nav-fill">
               <li className="nav-item">
                 <Link to="/profile/tuits"
-                      className="nav-link active">
+                      className="nav-link">
                   Tuits</Link>
               </li>
               <li className="nav-item">
