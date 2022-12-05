@@ -29,7 +29,6 @@ describe('user can fetch likes', ()=>{
     test('user can fetch likes' , async() => {
         const newUser = user;
         const tuitLikedByUser = await findAllTuitsLikedByUser(newUser._id);
-
        expect(tuitLikedByUser.tuit).toEqual(testTuit.tuit);
        expect(tuitLikedByUser.postedBy).toEqual(testTuit.postedBy);
     })
